@@ -64,7 +64,8 @@ class CountriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_country
-      @country = Country.find(params[:id])
+      #see https://hackhands.com/ruby-rails-performance-tuning/
+      @country = Country.includes( :percentages => :languages).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
