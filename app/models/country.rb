@@ -1,3 +1,3 @@
 class Country < ActiveRecord::Base
-	has_many :percentage
+	has_many :percentages
 end
