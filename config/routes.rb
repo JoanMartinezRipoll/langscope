@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #define the root page
   root 'static_pages#home'
-
+  get 'myscope' => 'scope#myscope'
   resources :languages
 
   resources :countries
