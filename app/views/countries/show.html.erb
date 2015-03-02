@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @country.name %>
+</p>
+
+<p>
+  <strong>Population:</strong>
+  <%= @country.population %>
+</p>
+
+<p>
+<table>
+    <tr>
+      <th>Percent</th>
+      <th>Languages</th>
+      <th colspan="3"></th>
+    </tr>
+    <!-- TODO optimze -->
+  <% @country.percentage.each { |percentage|
+  		%> 
+  	<tr>
+  	  <td><%= percentage.percent %></td>
+  	  <td><%= percentage.language.pluck("name") %></td>
+  	</tr>
+  <% } %>
+  </table>
+<%= link_to 'Edit', edit_country_path(@country) %> |
+<%= link_to 'Back', countries_path %>

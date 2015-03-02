@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Percentages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Country</th>
+      <th>Percent</th>
+      <th>Languages</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <!-- TODO: optimize this, so that all countries and languages are obtained in a same query -->
+    <% @percentages.each do |percentage| %>
+      <tr>
+        <td><%= Country.find(percentage.country_id).name %></td>
+        <td><%= percentage.percent %></td>
+        <td><%= percentage.language.pluck("name") %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Percentage', new_percentage_path %>
