@@ -16,12 +16,11 @@ class PercentagesController < ApplicationController
 
   def create
     @percentage = Percentage.new(percentage_params)
+    #Using the association name with a through automatically fills the join model table
+    @percentage.language_ids = params[:percentage][:language_ids]
     if @percentage.save
-      params[:percentage][:language_ids].each {|language_id|
-        PercentLanguage.create(percentage_id: @percentage.id, language_id: language_id) unless language_id.empty?
-      }
       flash[:info] = "Percentage saved"
-      redirect_to root_url
+      redirect_to percentages_url
     else
       render 'new'
     end
