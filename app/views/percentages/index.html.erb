@@ -18,7 +18,7 @@
       <tr>
         <td><%= Country.find(percentage.country_id).name %></td>
         <td><%= percentage.percent %></td>
-        <td><%= percentage.language.pluck("name") %></td>
+        <td><%= percentage.languages.pluck("name") %></td>
         </tr>
     <% end %>
   </tbody>

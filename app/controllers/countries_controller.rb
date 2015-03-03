@@ -1,5 +1,5 @@
 class CountriesController < ApplicationController
-  before_action :set_country, only: [:show, :edit, :update, :destroy]
+  before_action :set_country, only: [:edit, :update, :destroy]
 
   # GET /countries
   # GET /countries.json
@@ -10,6 +10,8 @@ class CountriesController < ApplicationController
   # GET /countries/1
   # GET /countries/1.json
   def show
+      #see https://hackhands.com/ruby-rails-performance-tuning/
+      @country = Country.includes( percentages: :languages).find(params[:id])
   end
 
   # GET /countries/new
@@ -65,7 +67,7 @@ class CountriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_country
       #see https://hackhands.com/ruby-rails-performance-tuning/
-      @country = Country.includes( :percentages => :languages).find(params[:id])
+      @country = Country.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
