@@ -1,7 +1,7 @@
 <h1>Langscope</h1>
 <p>Welcome to langscope!</p>
 <p>Please insert the languages that you speak<p>
-<%= form_for(:scope , url: myscope_path, method: "get") do |f| %>
+<%= form_for(:scope , url: myscope_path(:format => "json"), method: "get") do |f| %>
    <div class="field">
     <%= f.label :languages %><br>
     <%= f.collection_select(:language_ids, Language.all, :id, :name,{}, {:multiple => true})  %>

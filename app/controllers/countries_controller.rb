@@ -4,7 +4,8 @@ class CountriesController < ApplicationController
   # GET /countries
   # GET /countries.json
   def index
-    @countries = Country.all
+	#The view for a country will list each of the spoken languages of that country
+    @countries = Country.includes( percentages: :languages).all
   end
 
   # GET /countries/1
