@@ -1,2 +1,0 @@
-class School < LanguageEntity
-end

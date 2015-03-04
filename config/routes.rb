@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :language_entities
-
   #define the root page
   root 'static_pages#home'
   get 'myscope' => 'scope#myscope'
