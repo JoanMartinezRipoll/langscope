@@ -1,5 +1,7 @@
-json.extract! @country, :id, :name, :population, :created_at, :updated_at
+json.extract! @country, :id, :name, :population
 json.result @country.percentages do |percentage|
      json.percentage percentage.percent
-  	 json.languages percentage.languages.collect!{ |language| language.name}
+  	 json.languages percentage.languages.each do |language|
+  	 	json.extract! language, :id, :name
+  	 end
 end
