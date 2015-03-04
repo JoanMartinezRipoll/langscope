@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :schools
   #define the root page
   root 'static_pages#home'
   get 'myscope' => 'scope#myscope'
