@@ -1,0 +1,2 @@
+module LanguageEntitiesHelper
+end

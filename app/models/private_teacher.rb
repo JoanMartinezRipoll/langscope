@@ -1,0 +1,2 @@
+class PrivateTeacher < LanguageEntity
+end

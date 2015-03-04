@@ -1,0 +1,2 @@
+class School < LanguageEntity
+end

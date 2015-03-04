@@ -4,15 +4,15 @@ class CountriesController < ApplicationController
   # GET /countries
   # GET /countries.json
   def index
-	#The view for a country will list each of the spoken languages of that country
+    #The view for a country will list each of the spoken languages of that country
     @countries = Country.includes( percentages: :languages).all
   end
 
   # GET /countries/1
   # GET /countries/1.json
   def show
-      #see https://hackhands.com/ruby-rails-performance-tuning/
-      @country = Country.includes( percentages: :languages).find(params[:id])
+    #see https://hackhands.com/ruby-rails-performance-tuning/
+    @country = Country.includes( percentages: :languages).find(params[:id])
   end
 
   # GET /countries/new
@@ -65,14 +65,14 @@ class CountriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_country
-      #see https://hackhands.com/ruby-rails-performance-tuning/
-      @country = Country.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_country
+    #see https://hackhands.com/ruby-rails-performance-tuning/
+    @country = Country.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def country_params
-      params.require(:country).permit(:name, :population)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def country_params
+    params.require(:country).permit(:name, :population)
+  end
 end

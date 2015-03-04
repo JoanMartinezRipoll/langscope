@@ -1,0 +1,37 @@
+<%= form_for(@language_entity) do |f| %>
+  <% if @language_entity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@language_entity.errors.count, "error") %> prohibited this language_entity from being saved:</h2>
+
+      <ul>
+      <% @language_entity.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :street %><br>
+    <%= f.text_field :street %>
+  </div>
+  <div class="field">
+    <%= f.label :plz %><br>
+    <%= f.text_field :plz %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :country_id %><br>
+    <%= f.text_field :country_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
