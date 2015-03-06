@@ -5,15 +5,22 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+#======COUNTRIES=======
 spain = Country.create(name: 'Spain', population: 46464053).id
 germany = Country.create(name: 'Germany', population: 80716000).id
 england = Country.create(name: 'England', population: 53012456).id
+italy = Country.create(name: 'Italy', population: 60782668).id
+us = Country.create(name: 'United States', population: 320206000).id
+canada = Country.create(name: 'Canada', population: 35675834).id
 spanish = Language.create(name: 'Spanish').id
 catalan = Language.create(name: 'Catalan').id
 german = Language.create(name: 'German').id
 english = Language.create(name: 'English').id
 french = Language.create(name: 'French').id
+italian = Language.create(name: 'Italian').id
 
+#======PERCENTAGES=======
 #GERMANY
 percentage = Percentage.new(percent: 70.0, country_id: germany)
 percentage.language_ids = [german]
@@ -52,3 +59,30 @@ percentage.save
 percentage = Percentage.new(percent: 10.0, country_id: spain)
 percentage.language_ids = [spanish, english]
 percentage.save
+
+#US
+percentage = Percentage.new(percent: 60.0, country_id: us)
+percentage.language_ids = [english]
+percentage.save
+
+percentage = Percentage.new(percent: 20.0, country_id: us)
+percentage.language_ids = [spanish, english]
+percentage.save
+
+percentage = Percentage.new(percent: 10.0, country_id: us)
+percentage.language_ids = [english, italian]
+percentage.save
+
+percentage = Percentage.new(percent: 5.0, country_id: us)
+percentage.language_ids = [french, english]
+percentage.save
+
+percentage = Percentage.new(percent: 5.0, country_id: us)
+percentage.language_ids = [spanish, english, italian]
+percentage.save
+
+
+#======SCHOOLS=======
+School.create(email: "berlin@schools.com", password: "password", password_confirmation: "password", name: "Berlin School", address: "Alexanderplatz 2", plz: "10178", country_id: germany)
+School.create(email: "chicago@schools.com", password: "password", password_confirmation: "password", name: "Chicago School", address: "Western Ave 3", plz: "332B", country_id: us)
+School.create(email: "london@schools.com", password: "password", password_confirmation: "password", name: "London School", address: "Camden High St 3A", plz: "NW1 7JE", country_id: england)

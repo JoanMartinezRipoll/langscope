@@ -1,12 +1,19 @@
-<h1>Langscope</h1>
-<p>Welcome to langscope!</p>
-<p>Please insert the languages that you speak<p>
-<%= form_for(:scope , url: myscope_path(:format => "json"), method: "get") do |f| %>
-   <div class="field">
-    <%= f.label :languages %><br>
-    <%= f.collection_select(:language_ids, Language.all, :id, :name,{}, {:multiple => true})  %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Check my scope" %>
+<% if school_signed_in? %>
+<% else %>
+  <div class="center jumbotron">
+    <h1>Welcome to langscope!</h1>
+    <h2>
+      Please insert the languages that you speak
+    </h2>
+    <%= form_for(:scope , url: myscope_path(:format => "json"), method: "get") do |f| %>
+      <div class="field">
+        <%= f.label :languages %><br>
+        <%= f.collection_select(:language_ids, Language.all, :id, :name,{}, {:multiple => true})  %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Check my scope" %>
+      </div>
+    <% end %>
+    <%= link_to "Sign up your school!", new_school_registration_path, class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>

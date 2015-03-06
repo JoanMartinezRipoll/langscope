@@ -31,16 +31,18 @@ class DeviseCreateSchools < ActiveRecord::Migration
       # t.datetime :locked_at
 
       t.string :name
-      t.string :street
+      t.string :address
       t.string :plz
       t.string :email
-      t.references :country
+      t.references :country, index: true
+
 
       t.timestamps
     end
 
     add_index :schools, :email,                unique: true
     add_index :schools, :reset_password_token, unique: true
+    add_foreign_key :schools, :countries
     # add_index :schools, :confirmation_token,   unique: true
     # add_index :schools, :unlock_token,         unique: true
   end
