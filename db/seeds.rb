@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#======COUNTIES=======
+#======COUNTRIES=======
 spain = Country.create(name: 'Spain', population: 46464053).id
 germany = Country.create(name: 'Germany', population: 80716000).id
 england = Country.create(name: 'England', population: 53012456).id
