@@ -83,6 +83,13 @@ percentage.save
 
 
 #======SCHOOLS=======
-School.create(email: "berlin@schools.com", password: "password", password_confirmation: "password", name: "Berlin School", address: "Alexanderplatz 2", plz: "10178", country_id: germany)
-School.create(email: "chicago@schools.com", password: "password", password_confirmation: "password", name: "Chicago School", address: "Western Ave 3", plz: "332B", country_id: us)
-School.create(email: "london@schools.com", password: "password", password_confirmation: "password", name: "London School", address: "Camden High St 3A", plz: "NW1 7JE", country_id: england)
+berlin_school = School.create(email: "berlin@schools.com", password: "password", password_confirmation: "password", name: "Berlin School", address: "Alexanderplatz 2", plz: "10178", country_id: germany).id
+chicago_school = School.create(email: "chicago@schools.com", password: "password", password_confirmation: "password", name: "Chicago School", address: "Western Ave 3", plz: "332B", country_id: us).id
+london_school = School.create(email: "london@schools.com", password: "password", password_confirmation: "password", name: "London School", address: "Camden High St 3A", plz: "NW1 7JE", country_id: england).id
+
+
+#======OFFERS=======
+#Berlin school
+LanguageOffer.create(school_id: berlin_school, language_id: german, price: 200, level: "A1, B2")
+LanguageOffer.create(school_id: berlin_school, language_id: english, price: 400, level: "A2, B2")
+LanguageOffer.create(school_id: berlin_school, language_id: italian, price: 1000, level: "C2")

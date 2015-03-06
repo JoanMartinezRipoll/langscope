@@ -1,4 +1,12 @@
 <% if school_signed_in? %>
+  <h1> Welcome back! </h1>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="school_info">
+        <%= render 'schools/shared/school_info' %>
+      </section>
+    </aside>
+  </div>
 <% else %>
   <div class="center jumbotron">
     <h1>Welcome to langscope!</h1>

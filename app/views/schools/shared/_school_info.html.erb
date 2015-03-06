@@ -1,0 +1,20 @@
+<h1><%= current_school.name %></h1>
+<p>
+  <%= current_school.address %> , <%=current_school.plz%>,
+   <%=Country.find(current_school.country_id).name%>
+</p>
+<h1> Offered languages: </h1>
+<table>
+  <tr>
+    <th> Language </th>
+    <th> Price </th>
+    <th> Levels </th>
+  </tr>
+  <% current_school.language_offers.each do |offer| %>
+    <tr>
+      <td> <%= Language.find(offer.language_id).name %> </td>
+      <td> <%= offer.price %></td>
+      <td> <%= offer.level %></td>
+    </tr>
+  <% end %>
+</table>

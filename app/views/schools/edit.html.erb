@@ -1,0 +1,11 @@
+<div>
+  <%= form_for(current_school, :url => offers_path(current_school)) do |f| %>
+    <%= render "schools/shared/fields", f: f %>
+    <h1> Language offers </h1>
+    <%= f.fields_for :language_offers do |offer| %>
+      <%= render 'language_offer_fields', f: offer %>
+    <% end %>
+    <%= link_to_add_fields "Add language offer", f, :language_offers %>
+    <%= f.submit "Save changes", class: "btn btn-primary" %>
+  <% end %>
+</div>
