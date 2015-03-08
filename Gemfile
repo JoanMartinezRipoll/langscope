@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 # Use mysql as the database for Active Record
 gem 'bootstrap-sass',       '3.2.0.0'
+gem "d3-rails"
+gem 'topojson-rails'
 gem 'devise'
 gem 'mysql2'
 # Use SCSS for stylesheets
