@@ -3,8 +3,11 @@ class CreateCountries < ActiveRecord::Migration
     create_table :countries do |t|
       t.string :name
       t.integer :population
-
+      t.string :code
       t.timestamps null: false
     end
+
+    add_index :countries, :code, unique: true
+
   end
 end

@@ -7,12 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #======COUNTRIES=======
-spain = Country.create(name: 'Spain', population: 46464053).id
-germany = Country.create(name: 'Germany', population: 80716000).id
-england = Country.create(name: 'England', population: 53012456).id
-italy = Country.create(name: 'Italy', population: 60782668).id
-us = Country.create(name: 'United States', population: 320206000).id
-canada = Country.create(name: 'Canada', population: 35675834).id
+spain = Country.create(name: 'Spain', population: 46464053, code:'ESP').id
+germany = Country.create(name: 'Germany', population: 80716000, code:'DEU').id
+england = Country.create(name: 'England', population: 53012456, code:'GBR').id
+italy = Country.create(name: 'Italy', population: 60782668, code:'ITA').id
+us = Country.create(name: 'United States', population: 320206000, code:'USA').id
+canada = Country.create(name: 'Canada', population: 35675834, code:'CAN').id
 spanish = Language.create(name: 'Spanish').id
 catalan = Language.create(name: 'Catalan').id
 german = Language.create(name: 'German').id
