@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$("form .remove_fields").click(function(event){
+	$("form").on('click', '.remove_fields', function() {
 		$(this).prev('input[type=hidden]').val('1')
 		$(this).closest('fieldset').hide()
 		event.preventDefault()
