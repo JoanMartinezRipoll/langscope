@@ -23,29 +23,16 @@
         }
     }
 
-    var map = new Datamap({
-        element: document.getElementById('container'),
-        fills: {
-            HIGH: '#38496C',
-            LOW: '#65C7FF',
-            MEDIUM: '#3E78D6',
-            UNKNOWN: 'rgb(0,0,0)',
-            defaultFill: '#B4DDED'
-        },
-        data: countryCollection,
-        geographyConfig: {
-            borderColor: '#FFFFFF',
-            highlightBorderWidth: 1,
-            highlightBorderColor: '#899D82',
-            highlightFillColor: '#89E882',
-            popupTemplate: function(geo, data) {
-                countryName.textContent = geo.properties.name;
-                if (data) {
-                    speakers.textContent = data.population;                    
-                
-                } else {
-                    speakers.textContent = "Not available";
-                }
-            }
+    var resetCountry = {
+        fillKey: "defaultFill",
+        population: 0,
+        percentage: 0   
+    };
+
+    for (var key in map.options.data) {
+        if (!countryCollection[key]) {
+            countryCollection[key] = resetCountry;
         }
-    });
+    }
+
+    map.updateChoropleth(countryCollection);

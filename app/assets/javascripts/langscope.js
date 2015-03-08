@@ -1,3 +1,5 @@
+var map;
+
 $(document).ready(function() {
 
     var countryName = document.getElementById('country-name');
@@ -24,7 +26,7 @@ $(document).ready(function() {
         }
     }
 
-    var map = new Datamap({
+    map = new Datamap({
         element: document.getElementById('container'),
         fills: {
             HIGH: '#38496C',
