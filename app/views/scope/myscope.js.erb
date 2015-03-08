@@ -1,18 +1,17 @@
-$(document).ready(function() {
-
     var countryName = document.getElementById('country-name');
     var speakers = document.getElementById('speakers');
 
-    $.get("/countries.json", function(data) {
-
     var countryCollection = {};
 
-    for (var i = 0; i < data.length; i++) {
-        countryCollection[data[i].code] = {
-            fillKey: colorFill(data[i].population),
-            population: data[i].population
+    <% @scope.each do |key,value| %>
+
+        countryCollection["<%=key%>"] = {
+            fillKey: colorFill("<%=value[0]%>"),
+            population: "<%=value[1]%>",
+            percentage: "<%=value[0]%>"
         }
-    }
+
+    <%end%>
 
     function colorFill(amount) {
         if(amount < 20000000) {
@@ -50,6 +49,3 @@ $(document).ready(function() {
             }
         }
     });
-    });
-
-});

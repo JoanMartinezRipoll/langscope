@@ -13,7 +13,7 @@
     <h2>
       Please insert the languages that you speak
     </h2>
-    <%= form_for(:scope , url: myscope_path(:format => "json"), method: "get") do |f| %>
+    <%= form_for(:scope , url: myscope_path, method: "get", remote: true) do |f| %>
       <div class="field">
         <%= f.label :languages %><br>
         <%= f.collection_select(:language_ids, Language.all, :id, :name,{}, {:multiple => true})  %>
