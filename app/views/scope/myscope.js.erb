@@ -5,13 +5,13 @@
 
     <% @scope.each do |key,value| %>
 
-        countryCollection["<%=key%>"] = {
-            fillKey: colorFill("<%=value[0]%>"),
-            population: "<%=value[1]%>",
-            percentage: "<%=value[0]%>"
+        countryCollection["<%= key %>"] = {
+            fillKey: colorFill("<%= value[0] %>"),
+            population: "<%= value[1] %>",
+            percentage: "<%= value[0] %>"
         }
 
-    <%end%>
+    <% end %>
 
     function colorFill(amount) {
         if(amount < 20000000) {

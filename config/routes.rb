@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   resources :percentages
 
   resources :schools, only: [:index, :show]
-  get 'offers'   => 'schools#edit'
-  put 'offers'   => 'schools#update'
-  patch 'offers' => 'schools#update'
+  get 'schools/offers'   => 'schools#edit'
+  put 'schools/offers'   => 'schools#update'
+  patch 'schools/offers' => 'schools#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

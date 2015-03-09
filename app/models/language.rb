@@ -1,9 +1,11 @@
 class Language < ActiveRecord::Base
   has_many :percent_languages
-  has_many :percentages, :through => :percent_languages
+  has_many :percentages,
+    through: :percent_languages
 
   has_many :language_offers
-  has_many :schools, :through => :language_offers
+  has_many :schools,
+    through: :language_offers
 
   def self.get_scope_of(languages)
     country_scopes = Hash.new
