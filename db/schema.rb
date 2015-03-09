@@ -11,14 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304141357) do
+ActiveRecord::Schema.define(version: 20150305133034) do
 
   create_table "countries", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.integer  "population", limit: 4
+    t.string   "code",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  add_index "countries", ["code"], name: "index_countries_on_code", unique: true, using: :btree
+
+  create_table "language_offers", force: :cascade do |t|
+    t.integer  "school_id",   limit: 4
+    t.integer  "language_id", limit: 4
+    t.string   "level",       limit: 255
+    t.integer  "price",       limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "language_offers", ["language_id"], name: "index_language_offers_on_language_id", using: :btree
+  add_index "language_offers", ["school_id"], name: "index_language_offers_on_school_id", using: :btree
 
   create_table "languages", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -68,6 +83,8 @@ ActiveRecord::Schema.define(version: 20150304141357) do
   add_index "schools", ["email"], name: "index_schools_on_email", unique: true, using: :btree
   add_index "schools", ["reset_password_token"], name: "index_schools_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "language_offers", "languages"
+  add_foreign_key "language_offers", "schools"
   add_foreign_key "percent_languages", "languages"
   add_foreign_key "percent_languages", "percentages"
   add_foreign_key "percentages", "countries"

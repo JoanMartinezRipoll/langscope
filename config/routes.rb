@@ -4,13 +4,17 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'myscope' => 'scope#myscope'
   get 'help'    => 'static_pages#help'
+
   resources :languages
 
   resources :countries
 
   resources :percentages
 
-  resources :schools, only: [:index, :edit, :show]
+  resources :schools, only: [:index, :show]
+  get 'schools/offers'   => 'schools#edit'
+  put 'schools/offers'   => 'schools#update'
+  patch 'schools/offers' => 'schools#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

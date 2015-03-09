@@ -7,6 +7,11 @@ class ScopeController < ApplicationController
     #When a user selects some languages,all the countries where these are spoken will be listed
     languages = Language.includes( percentages: :country).find(params[:scope][:language_ids].drop(1)) #first element is always blank
     @scope, @world_ratio = Language.get_scope_of(languages)
+    
+    # respond_to do |format|
+    # 	format.html { redirect_to root_path}
+    # 	format.js
+   	# end
   end
 
 end

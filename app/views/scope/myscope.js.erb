@@ -1,0 +1,38 @@
+    var countryName = document.getElementById('country-name');
+    var speakers = document.getElementById('speakers');
+
+    var countryCollection = {};
+
+    <% @scope.each do |key,value| %>
+
+        countryCollection["<%= key %>"] = {
+            fillKey: colorFill("<%= value[0] %>"),
+            population: "<%= value[1] %>",
+            percentage: "<%= value[0] %>"
+        }
+
+    <% end %>
+
+    function colorFill(amount) {
+        if(amount < 20000000) {
+            return "LOW";
+        } else if(amount > 20000000 && amount < 100000000) {
+            return "MEDIUM";
+        } else {
+            return "HIGH";
+        }
+    }
+
+    var resetCountry = {
+        fillKey: "defaultFill",
+        population: 0,
+        percentage: 0   
+    };
+
+    for (var key in map.options.data) {
+        if (!countryCollection[key]) {
+            countryCollection[key] = resetCountry;
+        }
+    }
+
+    map.updateChoropleth(countryCollection);

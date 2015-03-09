@@ -1,0 +1,17 @@
+<h1> Information </h1>
+<div class="field">
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :address %><br />
+  <%= f.text_field :address %>
+</div>
+<div class="field">
+  <%= f.label :plz %><br />
+  <%= f.text_field :plz %>
+</div>
+<div class="field">
+  <%= f.label :country %><br />
+  <%= f.collection_select :country_id, Country.all, :id, :name %>
+</div>

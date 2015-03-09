@@ -1,6 +1,11 @@
 class Language < ActiveRecord::Base
   has_many :percent_languages
-  has_many :percentages, :through => :percent_languages
+  has_many :percentages,
+    through: :percent_languages
+
+  has_many :language_offers
+  has_many :schools,
+    through: :language_offers
 
   def self.get_scope_of(languages)
     country_scopes = Hash.new
@@ -18,9 +23,9 @@ class Language < ActiveRecord::Base
 
     percentages.each do |percentage|
       country = percentage.country
-      percent_scope =  country_scopes.has_key?(country.id) ?  country_scopes[country.id][0] + percentage.percent : percentage.percent
+      percent_scope =  country_scopes.has_key?(country.code) ?  country_scopes[country.code][0] + percentage.percent : percentage.percent
       population_scope =  country.population * (percent_scope/100)
-      country_scopes[country.id] = percent_scope , population_scope
+      country_scopes[country.code] = percent_scope , population_scope
     end
     return country_scopes , world_ratio(country_scopes)
   end

@@ -7,12 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #======COUNTRIES=======
-spain = Country.create(name: 'Spain', population: 46464053).id
-germany = Country.create(name: 'Germany', population: 80716000).id
-england = Country.create(name: 'England', population: 53012456).id
-italy = Country.create(name: 'Italy', population: 60782668).id
-us = Country.create(name: 'United States', population: 320206000).id
-canada = Country.create(name: 'Canada', population: 35675834).id
+spain = Country.create(name: 'Spain', population: 46464053, code:'ESP').id
+germany = Country.create(name: 'Germany', population: 80716000, code:'DEU').id
+england = Country.create(name: 'England', population: 53012456, code:'GBR').id
+italy = Country.create(name: 'Italy', population: 60782668, code:'ITA').id
+us = Country.create(name: 'United States', population: 320206000, code:'USA').id
+canada = Country.create(name: 'Canada', population: 35675834, code:'CAN').id
 spanish = Language.create(name: 'Spanish').id
 catalan = Language.create(name: 'Catalan').id
 german = Language.create(name: 'German').id
@@ -83,6 +83,13 @@ percentage.save
 
 
 #======SCHOOLS=======
-School.create(email: "berlin@schools.com", password: "password", password_confirmation: "password", name: "Berlin School", address: "Alexanderplatz 2", plz: "10178", country_id: germany)
-School.create(email: "chicago@schools.com", password: "password", password_confirmation: "password", name: "Chicago School", address: "Western Ave 3", plz: "332B", country_id: us)
-School.create(email: "london@schools.com", password: "password", password_confirmation: "password", name: "London School", address: "Camden High St 3A", plz: "NW1 7JE", country_id: england)
+berlin_school = School.create(email: "berlin@schools.com", password: "password", password_confirmation: "password", name: "Berlin School", address: "Alexanderplatz 2", plz: "10178", country_id: germany).id
+chicago_school = School.create(email: "chicago@schools.com", password: "password", password_confirmation: "password", name: "Chicago School", address: "Western Ave 3", plz: "332B", country_id: us).id
+london_school = School.create(email: "london@schools.com", password: "password", password_confirmation: "password", name: "London School", address: "Camden High St 3A", plz: "NW1 7JE", country_id: england).id
+
+
+#======OFFERS=======
+#Berlin school
+LanguageOffer.create(school_id: berlin_school, language_id: german, price: 200, level: "A1, B2")
+LanguageOffer.create(school_id: berlin_school, language_id: english, price: 400, level: "A2, B2")
+LanguageOffer.create(school_id: berlin_school, language_id: italian, price: 1000, level: "C2")

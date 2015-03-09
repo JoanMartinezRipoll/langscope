@@ -1,5 +1,5 @@
 json.array!(@countries) do |country|
-	json.extract! country, :id, :name, :population
+	json.extract! country, :id, :name, :population, :code
 	json.percentages country.percentages do |percentage|
 		json.percentage percentage.percent
 		json.languages percentage.languages.each do |language|
