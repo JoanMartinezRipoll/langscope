@@ -1,4 +1,5 @@
 FactoryGirl.define do
+
   factory :country do
     name "Germany"
     population 80716000

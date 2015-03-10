@@ -1,4 +1,5 @@
 FactoryGirl.define do
+
   factory :language do
     name "German"
 
@@ -7,6 +8,7 @@ FactoryGirl.define do
         percent 100.0
         country nil
       end
+
       after(:create) do |language, evaluator|
         percentage = evaluator.country ?
           create(:percentage, percent:evaluator.percent, country:evaluator.country) :
