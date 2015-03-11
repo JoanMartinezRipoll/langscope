@@ -9,9 +9,10 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) {
-      |u| u.permit(:email, :password,{ language_ids: [] },
-                   :password_confirmation, :name, :address,
-                   :plz, :country_id)
+      |u| u.permit(:email, :password,:password_confirmation, :name, :address, :plz, :country_id)
+    }
+    devise_parameter_sanitizer.for(:account_update) {
+      |u| u.permit(:email, :password,:password_confirmation, :current_password, :name, :address, :plz, :country_id)
     }
   end
 
