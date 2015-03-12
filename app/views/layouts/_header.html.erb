@@ -7,8 +7,8 @@
         <li><%= link_to "Help", help_path %></li>
         <% if school_signed_in? %>
           <!-- TODO get school path and do this nice-->
-          <li><%= link_to "Profile", edit_schools_offers_path %></li>
-          <li><%= link_to "Settings", edit_school_registration_path %></li>
+          <li><%= link_to "Profile", edit_school_path(current_school) %></li>
+          <li><%= link_to "Account", edit_school_registration_path %></li>
           <li>
             <%= link_to "Log out", destroy_school_session_path, method: "delete" %>
           </li>

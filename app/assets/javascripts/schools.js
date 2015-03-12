@@ -5,11 +5,9 @@ $(document).ready(function(){
     event.preventDefault();
   });
   $("form .add_fields").click(function(event){
-    time = new Date().getTime();
-    // g means global match;
     regexp = new RegExp($(this).data('id'), 'g');
-    //this line puts all the data before the link and replaces the ruby ids with time ids;
-    $(this).before($(this).data('fields').replace(regexp, time));
+    fieldSetNum = $("fieldset").length + 1;
+    $(this).before($(this).data('fields').replace(regexp, fieldSetNum));
     event.preventDefault();
   });
 });

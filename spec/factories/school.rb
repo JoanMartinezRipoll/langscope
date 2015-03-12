@@ -1,9 +1,9 @@
 FactoryGirl.define do
 
   factory :school do
-    email                  "school@example.com"
-    password               "password"
-    password_confirmation  "password"
+    email "school@example.com"
+    password "password"
+    password_confirmation "password"
     name "Example School"
     address "Alexanderplatz 2"
     plz "10178"

@@ -7,7 +7,7 @@ class School < ActiveRecord::Base
   accepts_nested_attributes_for :language_offers, allow_destroy: true
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
-  validates :name, presence: true, length: { maximum: 50}
-  validates :address, presence: true, length: { maximum: 100}
-  validates :plz, presence: true
+  validates :name, length: { maximum: 50}
+  validates :address, length: { maximum: 100}
+  validates :plz, length: { maximum: 10}
 end
