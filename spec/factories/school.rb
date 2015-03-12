@@ -1,12 +1,12 @@
 FactoryGirl.define do
 
   factory :school do
-    email "school@example.com"
+    email {Faker::Internet.email}
     password "password"
     password_confirmation "password"
     name "Example School"
-    address "Alexanderplatz 2"
-    plz "10178"
+    address {Faker::Address.street_address}
+    plz {Faker::Address.postcode}
     country
   end
 

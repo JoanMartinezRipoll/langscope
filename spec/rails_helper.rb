@@ -4,6 +4,7 @@ require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
+require 'capybara/poltergeist'
 require 'devise'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -48,12 +49,13 @@ RSpec.configure do |config|
   #
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
+  Capybara.javascript_driver = :poltergeist
+  Capybara.register_driver :poltergeist do |app|
+    Capybara::Poltergeist::Driver.new(app, js_errors: false)
+  end
   config.include Devise::TestHelpers, type: :controller
   config.infer_spec_type_from_file_location!
   config.include FactoryGirl::Syntax::Methods
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
   config.before(:each) do
     if Capybara.current_driver == :rack_test
       DatabaseCleaner.strategy = :transaction
