@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Offers management", :type => :feature do
   let!(:school) { create(:school) }
-  let!(:language) {create(:language)}
+  let!(:language) { create(:language) }
   before :each do
     visit new_school_session_path
     fill_in "Email", with: school.email

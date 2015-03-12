@@ -34,14 +34,14 @@ RSpec.describe Devise::RegistrationsController, type: :controller do
     it "creates a new registration" do
       expect {
         post :create, school: attributes_for(:school)
-      }.to change(School,:count).by(1)
+      }.to change{School.count}.by(1)
       expect(response).to redirect_to root_url
     end
 
     it "does not save the invalid registration" do
       expect {
         post :create, school: attributes_for(:invalid_school)
-      }.to_not change(School,:count)
+      }.to_not change{School.count}
       expect(response).to render_template(:new)
     end
   end
@@ -53,7 +53,7 @@ RSpec.describe Devise::RegistrationsController, type: :controller do
         sign_in @school
       end
       it 'changes @school registration data' do
-        patch :update, school: { name:"Edited school", current_password:"password"}
+        patch :update, school: { name: "Edited school", current_password: "password"}
         expect(response).to redirect_to root_url
         expect(flash[:notice]).to match(FLASH_UPDATE_MSG)
         @school.reload
@@ -61,17 +61,15 @@ RSpec.describe Devise::RegistrationsController, type: :controller do
       end
 
       it 'does not save the invalid registration data' do
-        # patch :update, school: attributes_for(:invalid_school).merge({current_password: "password"})
         patch :update, school: attributes_for(:invalid_school, current_password: "password")
-        #patch :update, school: { name: nil, email: "no@no.com", current_password:"password"}
         expect(response).to render_template(:edit)
         @school.reload
         expect(@school.email).not_to eq("no@no.com")
       end
     end
-    context "no signed in school" do
+    context "school that's not signed in" do
       it "redirects to  the sign_in view" do
-        patch :update, school: { name:"Edited school", current_password:"password"}
+        patch :update, school: { name: "Edited school", current_password: "password"}
         expect(response).to redirect_to new_school_session_url
       end
     end
@@ -83,19 +81,20 @@ RSpec.describe Devise::RegistrationsController, type: :controller do
         @school = create(:school)
         sign_in @school
       end
+
       it 'deletes the @school' do
         expect{
           delete :destroy, id: @school
-        }.to change(School,:count).by(-1)
+        }.to change{School.count}.by(-1)
         expect(response).to redirect_to root_url
         expect(flash[:notice]).to match(FLASH_DELETE_MSG)
       end
     end
-    context "no signed in school" do
+    context "school that's not signed in" do
       it "redirects to  the sign_in view" do
         expect {
           delete :destroy, id: @school
-        }.to_not change(School,:count)
+        }.to_not change{School.count}
         expect(response).to redirect_to new_school_session_url
       end
     end

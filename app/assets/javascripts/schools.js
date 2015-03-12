@@ -4,7 +4,7 @@ $(document).ready(function(){
     $(this).closest('fieldset').hide();
     event.preventDefault();
   });
-  $("form .add_fields").click(function(event){
+  $("form").on('click', '.add_fields', function() {
     regexp = new RegExp($(this).data('id'), 'g');
     fieldSetNum = $("fieldset").length + 1;
     $(this).before($(this).data('fields').replace(regexp, fieldSetNum));
