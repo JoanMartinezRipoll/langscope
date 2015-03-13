@@ -4,12 +4,10 @@ $(document).ready(function(){
     $(this).closest('fieldset').hide();
     event.preventDefault();
   });
-  $("form .add_fields").click(function(event){
-    time = new Date().getTime();
-    // g means global match;
+  $("form").on('click', '.add_fields', function() {
     regexp = new RegExp($(this).data('id'), 'g');
-    //this line puts all the data before the link and replaces the ruby ids with time ids;
-    $(this).before($(this).data('fields').replace(regexp, time));
+    fieldSetNum = $("fieldset").length + 1;
+    $(this).before($(this).data('fields').replace(regexp, fieldSetNum));
     event.preventDefault();
   });
 });
