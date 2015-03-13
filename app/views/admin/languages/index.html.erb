@@ -11,10 +11,12 @@
     <% @languages.each do |language| %>
       <tr>
         <td><%= language.name %></td>
-        <td><%= link_to 'Show', language %></td>
+        <td><%= link_to 'Show', [:admin, language] %></td>
+        <td><%= link_to 'Edit', [:edit, :admin, language] %></td>
+        <td><%= link_to 'Destroy', [:admin, language], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<td><%= link_to 'Back', root_url %></td>
+<%= link_to 'New Language', new_admin_language_path %>
