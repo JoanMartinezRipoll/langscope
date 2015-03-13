@@ -1,5 +1,6 @@
-class PercentagesController < ApplicationController
-
+class Admin::PercentagesController < ApplicationController
+  before_action :is_admin
+  before_action :authenticate_school! && current_school.admin?
   def index
     #@users = User.paginate(page: params[:page])
     @percentages = Percentage.all

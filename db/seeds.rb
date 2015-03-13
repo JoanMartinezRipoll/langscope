@@ -86,6 +86,7 @@ percentage.save
 berlin_school = School.create(email: "berlin@schools.com", password: "password", password_confirmation: "password", name: "Berlin School", address: "Alexanderplatz 2", plz: "10178", country_id: germany).id
 chicago_school = School.create(email: "chicago@schools.com", password: "password", password_confirmation: "password", name: "Chicago School", address: "Western Ave 3", plz: "332B", country_id: us).id
 london_school = School.create(email: "london@schools.com", password: "password", password_confirmation: "password", name: "London School", address: "Camden High St 3A", plz: "NW1 7JE", country_id: england).id
+School.create(email: "langscope@lang.com", password: "legionella", password_confirmation: "legionella", name: "Legionella School", address: "Camden High St 3A", plz: "NW1 7JE", country_id: england, admin: true)
 
 
 #======OFFERS=======

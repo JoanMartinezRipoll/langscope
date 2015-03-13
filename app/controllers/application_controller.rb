@@ -15,4 +15,9 @@ class ApplicationController < ActionController::Base
     }
   end
 
+  def is_admin
+    authenticate_school!
+    redirect_to root_url unless current_school.admin?
+  end
+
 end

@@ -34,6 +34,7 @@ class DeviseCreateSchools < ActiveRecord::Migration
       t.string :address
       t.string :plz
       t.string :email
+      t.boolean :admin, :default => false
       t.references :country, index: true
 
 
