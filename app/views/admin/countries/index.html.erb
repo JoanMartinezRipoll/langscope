@@ -11,8 +11,7 @@
   <tbody>
     <% @countries.each do |country| %>
       <tr>
-        <td><%= country.name %></td>
-        <td><%= country.population %></td>
+        <%= render 'shared/country_fields', country: country %>
         <td><%= link_to 'Show', [:admin, country] %></td>
         <td><%= link_to 'Edit', [:edit, :admin, country] %></td>
         <td><%= link_to 'Destroy', [:admin, country], method: :delete, data: { confirm: 'Are you sure?' } %></td>

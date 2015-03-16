@@ -1,27 +1,3 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Name:</strong>
-  <%= @country.name %>
-</p>
-<p>
-  <strong>Population:</strong>
-  <%= @country.population %>
-</p>
-<p>
-  <table>
-    <tr>
-      <th>Percent</th>
-      <th>Languages</th>
-      <th colspan="3"></th>
-    </tr>
-    <!-- TODO optimze -->
-    <% @country.percentages.each do |percentage|
-      %>
-    <tr>
-      <td><%= percentage.percent %></td>
-      <td><%= percentage.languages.collect!{ |language| language.name} %></td>
-    </tr>
-  <% end %>
-</table>
+<%= render "shared/show_country", country: @country %>
 <%= link_to 'Edit', [:edit, :admin, @country] %> |
 <%= link_to 'Back', admin_countries_path %>

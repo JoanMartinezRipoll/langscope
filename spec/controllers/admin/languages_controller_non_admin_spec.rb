@@ -2,7 +2,6 @@ require 'rails_helper'
 
 #This file tests that non logged in users and non admin schools can not perform admin compromised actions
 RSpec.describe Admin::LanguagesController, type: :controller do
-  ANY_ID = 1
   let(:language) { create(:language) }
 
   describe "non logged in school" do
@@ -24,12 +23,12 @@ RSpec.describe Admin::LanguagesController, type: :controller do
     end
 
     it "#edit redirects to sign_in" do
-      get :edit, id: ANY_ID
+      get :edit, id: 1
       expect(response).to redirect_to new_school_session_url
     end
 
     it "#show redirects to sign_in" do
-      get :show, id: ANY_ID
+      get :show, id: 1
       expect(response).to redirect_to new_school_session_url
     end
 
@@ -42,7 +41,7 @@ RSpec.describe Admin::LanguagesController, type: :controller do
 
     it "delete redirects to sign_in" do
       expect {
-        delete :destroy, id: ANY_ID
+        delete :destroy, id: 1
       }.to_not change{Language.count}
       expect(response).to redirect_to new_school_session_url
     end
@@ -71,12 +70,12 @@ RSpec.describe Admin::LanguagesController, type: :controller do
     end
 
     it "#edit redirects to root_url" do
-      get :edit, id: ANY_ID
+      get :edit, id: 1
       expect(response).to redirect_to root_url
     end
 
     it "#show redirects to root_url" do
-      get :show, id: ANY_ID
+      get :show, id: 1
       expect(response).to redirect_to root_url
     end
 
@@ -89,7 +88,7 @@ RSpec.describe Admin::LanguagesController, type: :controller do
 
     it "delete redirects to root_url" do
       expect {
-        delete :destroy, id: ANY_ID
+        delete :destroy, id: 1
       }.to_not change{Language.count}
       expect(response).to redirect_to root_url
     end

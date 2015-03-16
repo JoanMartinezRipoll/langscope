@@ -5,14 +5,14 @@
     <tr>
       <th>Name</th>
       <th>Population</th>
+      <th>Code</th>
       <th colspan="3"></th>
     </tr>
   </thead>
   <tbody>
     <% @countries.each do |country| %>
       <tr>
-        <td><%= country.name %></td>
-        <td><%= country.population %></td>
+        <%= render 'shared/country_fields', country: country %>
         <td><%= link_to 'Show', country %></td>
       </tr>
     <% end %>
