@@ -7,6 +7,8 @@ class Language < ActiveRecord::Base
   has_many :schools,
     through: :language_offers
 
+  validates :name, presence: true
+
   def self.get_scope_of(languages)
     country_scopes = Hash.new
     percentages = Set.new

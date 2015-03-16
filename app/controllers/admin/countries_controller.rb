@@ -60,7 +60,7 @@ class Admin::CountriesController < ApplicationController
   def destroy
     @country.destroy
     respond_to do |format|
-      format.html { redirect_to countries_url, notice: 'Country was successfully destroyed.' }
+      format.html { redirect_to admin_countries_url, notice: 'Country was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -74,6 +74,6 @@ class Admin::CountriesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def country_params
-    params.require(:country).permit(:name, :population)
+    params.require(:country).permit(:name, :population, :code)
   end
 end

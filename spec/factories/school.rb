@@ -10,6 +10,10 @@ FactoryGirl.define do
     country
   end
 
+  factory :admin_school, parent: :school do
+    admin true
+  end
+
   factory :invalid_school, parent: :school do
     email nil
   end

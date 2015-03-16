@@ -17,4 +17,8 @@ FactoryGirl.define do
       end
     end
   end
+
+  factory :invalid_language, parent: :language do
+    name ""
+  end
 end
