@@ -9,7 +9,7 @@ RSpec.feature "My scope test", :type => :feature do
     visit root_path
     select(language.name, from: "scope_language_ids")
     click_button "Check my scope"
-    page.should have_content('You can comunicate with 100.0 percent of the world population')
+    expect(page).to have_content('You can comunicate with 100.0 percent of the world population')
   end
 end
 

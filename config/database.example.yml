@@ -15,7 +15,10 @@ default: &default
   pool: 5
   username: root
   password: my2012sql3
-  socket: /var/run/mysqld/mysqld.sock
+  #linux
+  #socket: /var/run/mysqld/mysqld.sock
+  #mac
+  socket: /var/mysql/mysql.sock
 
 development:
   <<: *default
