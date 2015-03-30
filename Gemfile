@@ -7,6 +7,7 @@ gem 'rails', '4.2.0'
 gem 'bootstrap-sass',       '3.2.0.0'
 gem "d3-rails"
 gem 'topojson-rails'
+gem 'htmlbeautifier', '0.0.12'
 gem 'devise'
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -49,6 +50,10 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-commands-rspec'
+
+  group :development, :test do
+    gem 'railroady'
+  end
 
   group :test do
     gem 'database_cleaner'
