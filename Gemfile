@@ -7,7 +7,6 @@ gem 'rails', '4.2.0'
 gem 'bootstrap-sass',       '3.2.0.0'
 gem "d3-rails"
 gem 'topojson-rails'
-gem 'htmlbeautifier', '0.0.12'
 gem 'devise'
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -25,6 +24,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'pry'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

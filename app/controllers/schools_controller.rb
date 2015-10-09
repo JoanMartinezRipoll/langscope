@@ -11,8 +11,10 @@ class SchoolsController < ApplicationController
   end
 
   def update
+    binding.pry
     if current_school.update_attributes(school_params)
       flash[:success] = "Profile updated"
+      binding.pry
       redirect_to current_school
     else
       render 'edit'
